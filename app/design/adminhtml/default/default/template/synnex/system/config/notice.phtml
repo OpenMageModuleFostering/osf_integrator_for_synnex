@@ -1,0 +1,16 @@
+<script type="text/javascript">
+    //<![CDATA[
+    function startNotice() {
+        new Ajax.Request('<?php echo $this->getAjaxUrl() ?>', {
+            method:     'get',
+            onSuccess: function(transport){
+                if (transport.responseText){
+                    alert('Ship notice were imported');
+                }
+            }
+        });
+    }
+    //]]>
+</script>
+
+<?php echo $this->getButtonHtml() ?>

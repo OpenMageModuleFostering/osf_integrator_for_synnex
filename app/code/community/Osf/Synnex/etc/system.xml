@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<!--
+ * Osf Global Services
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ *
+-->
+<config>
+    <tabs>
+        <osftab translate="label" module="synnex">
+            <label>Osf</label>
+            <sort_order>80</sort_order>
+        </osftab>
+    </tabs>
+    <sections>
+        <synnex module="synnex">
+            <label>Synnex Configuration</label>
+            <tab>osftab</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>350</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <synnex translate="label">
+                    <label>Synnex Account Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>11</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <synnex_account_number translate="label">
+                            <label>Synnex Account Number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[ The account number received from Synnex ]]></comment>
+                        </synnex_account_number>
+                    </fields>
+                </synnex>
+                <ftplogin translate="label">
+                    <label>Ftp Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>11</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <ftp_host translate="label">
+                            <label>Ftp Server</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[<b>Ex: </b> example.com OR ftp.example.com ]]></comment>
+                        </ftp_host>
+                        <ftp_user translate="label">
+                            <label>Ftp Username</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[The FTP username used to connect to Synnex ftp]]></comment>
+                        </ftp_user>
+                        <ftp_password translate="label">
+                            <label>Ftp Password</label>
+                            <frontend_type>password</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[The FTP password used to connect to Synnex ftp]]></comment>
+                        </ftp_password>
+                        <ftp_prod_file translate="label">
+                            <label>Ftp Products Filename</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[The products file from the server]]></comment>
+                        </ftp_prod_file>
+                    </fields>
+                </ftplogin>
+                <xmllogin translate="label">
+                    <label>XML Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>12</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <xml_endpoint translate="label">
+                            <label>XML Endpoint</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[<b>Ex: </b> example.com ]]></comment>
+                        </xml_endpoint>
+                        <xml_username translate="label">
+                            <label>Xml Username</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[The username used to connect to Synnex endpoint]]></comment>
+                        </xml_username>
+                        <xml_password translate="label">
+                            <label>Xml Password</label>
+                            <frontend_type>password</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[The password used to connect to Synnex endpoint]]></comment>
+                        </xml_password>
+                    </fields>
+                </xmllogin>
+                <synnex_import translate="label">
+                    <label>Synnex Import Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>50</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <upload_file translate="label tooltip comment">
+                            <label>Upload Category Map File</label>
+                            <comment>Upload the file with the category map. For more infomation about this configuration go to user guide section "How does category map work?"</comment>
+                            <frontend_type>file</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_file</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">admin-config-uploads</upload_dir>
+                            <base_url type="media" scope_info="1">admin-config-uploads</base_url>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </upload_file>
+                        <import_conditions translate="label">
+                            <label>Import Conditions</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[The conditions for import, delimeted by ";" and space between the elements of the condition Available operands "=","!=",">","<". Ex: "column number" = "value". For more information about this configuration go to user guide section 3.1 xml table ]]></comment>
+                        </import_conditions>
+                    </fields>
+                </synnex_import>
+                <synnex_manual translate="label">
+                    <label>Operations Manual Start</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>60</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <import_start translate="label comment">
+                            <label>Import Products</label>
+                            <comment>You can manualy start the import, the import is automaticaly started at 2am.</comment>
+                            <frontend_type>button</frontend_type>
+                            <frontend_model>synnex/adminhtml_system_config_button_import</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </import_start>
+                        <ship_notice_start translate="label comment">
+                            <label>Import Ship Notices</label>
+                            <comment>You can manualy start the retrival of the shipnotices, the retrival is automaticaly started every 2 hours.</comment>
+                            <frontend_type>button</frontend_type>
+                            <frontend_model>synnex/adminhtml_system_config_button_notice</frontend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </ship_notice_start>
+                    </fields>
+                </synnex_manual>
+            </groups>
+        </synnex>
+    </sections>
+</config>

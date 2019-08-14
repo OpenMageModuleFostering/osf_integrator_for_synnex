@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Osf Global Services
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ *
+-->
+<config>
+    <modules>
+        <Osf_Synnex>
+            <version>1.0.0</version>
+        </Osf_Synnex>
+    </modules>
+    <global>
+        <blocks>
+            <synnex>
+                <class>Osf_Synnex_Block</class>
+            </synnex>
+            <adminhtml>
+                <rewrite>
+                    <sales_order_view_tab_shipments>Osf_Synnex_Block_Adminhtml_Shipments</sales_order_view_tab_shipments>
+                    <sales_shipment_grid>Osf_Synnex_Block_Adminhtml_Shipments_Grid</sales_shipment_grid>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        <models>
+            <synnex>
+                <class>Osf_Synnex_Model</class>
+                <resourceModel>synnex_resource</resourceModel>
+            </synnex>
+            <synnex_resource>
+                <class>Osf_Synnex_Model_Resource</class>
+                <entities>
+                    <queue>
+                        <table>synnex_queue</table>
+                    </queue>
+                </entities>
+            </synnex_resource>
+        </models>
+        <resources>
+            <synnex_setup>
+                <setup>
+                    <module>Osf_Synnex</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </synnex_setup>
+            <synnex_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </synnex_read>
+            <synnex_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </synnex_write>
+        </resources>
+        <helpers>
+           <synnex>
+                <class>Osf_Synnex_Helper</class>
+            </synnex>
+        </helpers>
+        <blocks>
+            <synnex>
+                <class>Osf_Synnex_Block</class>
+            </synnex>
+        </blocks>
+        <events>
+            <sales_order_save_after>
+                <observers>
+                    <Osf_Synnex_Model_Observer>
+                        <class>Osf_Synnex_Model_Observer</class>
+                        <method>processOrder</method>
+                    </Osf_Synnex_Model_Observer>
+                </observers>
+            </sales_order_save_after>
+        </events>
+        <template>
+            <email>
+                <synnex_import_error module="synnex">
+                    <label>Synnex Import Ship notice error</label>
+                    <file>synnex/synnex_import_error.html</file>
+                    <type>html</type>
+                </synnex_import_error>
+            </email>
+        </template>
+    </global>
+    <crontab>
+        <jobs>
+            <synnex_notice>
+                <schedule>
+                    <cron_expr>0 */2 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>synnex/shipping_notice::processNotices</model>
+                </run>
+            </synnex_notice>
+            <synnex_process>
+                <schedule>
+                    <cron_expr>0 2 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>synnex/import::processData</model>
+                </run>
+            </synnex_process>
+            <synnex_retry>
+                <schedule>
+                    <cron_expr>0 */2 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>synnex/order::retry</model>
+                </run>
+            </synnex_retry>
+        </jobs>
+    </crontab>
+    <frontend>
+        <routers>
+            <synnex>
+                <use>standard</use>
+                <args>
+                    <module>Osf_Synnex</module>
+                    <frontName>synnex</frontName>
+                </args>
+            </synnex>
+        </routers>
+    </frontend>
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <synnex module="synnex">
+                            <title>Synnex Configuration</title>
+                            <sort_order>11</sort_order>
+                        </synnex>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <synnex translate="title">
+                                            <title>Synnex Configuration</title>
+                                            <sort_order>80</sort_order>
+                                        </synnex>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+</config>

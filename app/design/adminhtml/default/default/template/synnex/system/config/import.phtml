@@ -1,0 +1,16 @@
+<script type="text/javascript">
+    //<![CDATA[
+    function startImport() {
+        new Ajax.Request('<?php echo $this->getAjaxUrl() ?>', {
+            method:     'get',
+            onSuccess: function(transport){
+                if (transport.responseText){
+                    alert('Products were Imported');
+                }
+            }
+        });
+    }
+    //]]>
+</script>
+
+<?php echo $this->getButtonHtml() ?>
